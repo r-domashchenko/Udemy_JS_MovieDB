@@ -1,5 +1,3 @@
-use strict;
-
 const numberOfFilms = +prompt(`Скільки фільмів ви вже подивились?`, ``);
 
 const personalMovieDb = {
@@ -16,3 +14,6 @@ const a = prompt(`Останній фільм`, ``),
     d = prompt(`На скільки оціните?`, ``);
 
 personalMovieDb.movies[a] = b;
+personalMovieDb.movies[c] = d;
+
+console.log(personalMovieDb);
