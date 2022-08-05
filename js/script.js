@@ -10,12 +10,10 @@ const personalMovieDb = {
     privat: false
 }
 
-const a = prompt(`Останній фільм`, ``),
-    b = prompt(`На скільки оціните?`, ``),
-    c = prompt(`Останній фільм`, ``),
-    d = prompt(`На скільки оціните?`, ``);
+for (let i = 0; i < numberOfFilms; i++) {
+    lastFilm = prompt(`Останній фільм`, ``);
+    numberOfStars = prompt(`На скільки зірок оціните?`, ``);
+    personalMovieDb.movies[lastFilm] = numberOfStars;
+}
 
-personalMovieDb.movies[a] = b;
-personalMovieDb.movies[c] = d;
-
-console.log(personalMovieDb);
+console.log(personalMovieDb.movies);
