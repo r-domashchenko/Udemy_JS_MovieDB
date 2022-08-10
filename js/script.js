@@ -22,13 +22,13 @@ const personalMovieDb = {
         }
     },
 
-    writeYourGenres: function() {
+    writeYourGenres: function () {
         for (let i = 1; i <= 3; i++) {
             personalMovieDb.genres[i - 1] = prompt(`Ваш улюблений жанр під номером: &{i}`);
         }
     },
 
-    rememberMyFilms: function() {
+    rememberMyFilms: function () {
         for (let i = 0; i < numberOfFilms; i++) {
             const lastFilm = prompt(`Останній фільм`, ``).trim(),
                 numberOfStars = prompt(`На скільки зірок оціните?`, ``);
@@ -41,7 +41,7 @@ const personalMovieDb = {
         }
     },
 
-    detectPersonalLevel: function() {
+    detectPersonalLevel: function () {
         if (personalMovieDb.count <= 10) {
             console.log('дуже мало дивились');
         } else if (personalMovieDb.count > 10 && personalMovieDb.count <= 30) {
@@ -53,7 +53,7 @@ const personalMovieDb = {
         }
     },
 
-    detectPersonalLevel: function() {
+    detectPersonalLevel: function () {
         if (personalMovieDb.count <= 10) {
             console.log('дуже мало дивились');
         } else if (personalMovieDb.count > 10 && personalMovieDb.count <= 30) {
@@ -65,5 +65,3 @@ const personalMovieDb = {
         }
     }
 }
-
-
