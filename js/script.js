@@ -1,30 +1,16 @@
 "use strict";
 
-let numberOfFilms;
-
 const personalMovieDb = {
-    count: numberOfFilms,
+    count: 0,
     movies: {},
     actors: {},
     genres: [],
     privat: false,
 
     start: function () {
-        numberOfFilms = +prompt(`Скільки фільмів ви вже подивились?`, ``);
-        while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-            numberOfFilms = +prompt(`Скільки фільмів ви вже подивились?`, ``);
-        }
-    },
-
-    showMyDB: function (hidden) {
-        if (!hidden) {
-            console.log(personalMovieDb);
-        }
-    },
-
-    writeYourGenres: function () {
-        for (let i = 1; i <= 3; i++) {
-            personalMovieDb.genres[i - 1] = prompt(`Ваш улюблений жанр під номером: &{i}`);
+        personalMovieDb.count = +prompt(`Скільки фільмів ви вже подивились?`, ``);
+        while (personalMovieDb.count == '' || personalMovieDb.count == null || isNaN(personalMovieDb.count)) {
+            personalMovieDb.count = +prompt(`Скільки фільмів ви вже подивились?`, ``);
         }
     },
 
@@ -41,15 +27,9 @@ const personalMovieDb = {
         }
     },
 
-    detectPersonalLevel: function () {
-        if (personalMovieDb.count <= 10) {
-            console.log('дуже мало дивились');
-        } else if (personalMovieDb.count > 10 && personalMovieDb.count <= 30) {
-            console.log('знаєтесь у фільмах');
-        } else if (personalMovieDb.count > 31) {
-            console.log('Ви - кіноман!');
-        } else {
-            console.log('error');
+    showMyDB: function (hidden) {
+        if (!hidden) {
+            console.log(personalMovieDb);
         }
     },
 
@@ -63,5 +43,31 @@ const personalMovieDb = {
         } else {
             console.log('error');
         }
+    },
+
+    writeYourGenres: function () {
+        for (let i = 1; i <= 3; i++) {
+            let genre = prompt(`Ваш улюблений жанр під номером: &{i}`);
+            
+            if (genre === '' || genre === null) {
+                console.log(`Не введені дані`);
+                i--;
+            } else {
+                personalMovieDb.genres[i - 1] = genre;
+            }
+        }
+
+        personalMovieDb.genres.forEach((item, i) => {
+            console.log(`Улюблений жанр# ${i+1} - це ${item}`);
+        });
+
+    },
+
+    toggleVisibleMyDB: function () {
+        if (personalMovieDb.privat) {
+            personalMovieDb.privat = false;
+        } else {
+            personalMovieDb.privat = true;
+        }
     }
-}
+};
